@@ -3,7 +3,6 @@ package com.kubac.homework;
 import com.kubac.homework.processor.ConsoleOutputProcessor;
 import com.kubac.homework.processor.FileInputProcessor;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import static com.kubac.homework.processor.ConsoleInputProcessor.processInputLine;
@@ -12,7 +11,7 @@ public class BscHomeworkApplication {
 
     public static boolean APP_RUNNING = true;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         new ConsoleOutputProcessor().start();
@@ -25,7 +24,7 @@ public class BscHomeworkApplication {
             }
 
             if (line.startsWith("run - ")) {
-                new FileInputProcessor(line.substring(6)).processInputFile();
+                new FileInputProcessor(line.substring(6)).start();
             } else {
                 processInputLine(line);
             }
